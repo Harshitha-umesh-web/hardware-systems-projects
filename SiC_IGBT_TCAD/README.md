@@ -12,7 +12,7 @@ The IGBT structures were modeled using a vertical device architecture consisting
 
 The figure below illustrates the modeled IGBT device structure used for simulation and analysis.
 
-![IGBT Structure](igbt_structure.png)
+![IGBT Structure](image1.jpeg)
 
 ---
 
@@ -21,7 +21,7 @@ Forward I–V characteristics were extracted for both Silicon and Silicon Carbid
 
 The comparison plot below shows the difference in electrical response between Si and SiC devices.
 
-![Si vs SiC I-V Characteristics](si_vs_sic_iv.png)
+![Si vs SiC I-V Characteristics](image2.png)
 
 ---
 
