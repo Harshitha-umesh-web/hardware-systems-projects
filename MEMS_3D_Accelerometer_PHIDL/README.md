@@ -22,7 +22,7 @@ The design was created over a **2000 µm × 2000 µm** die and includes:
 - **Bond pads:** distributed for external interfacing and routing studies
 - **Test structures:** spring patterns, comb arrays, alignment/CD features to support manufacturability evaluation
 
-<img src="accelerometer_gds_overview.png" width="520">
+<img src="accelerometer_gds_overview.jpeg" width="520">
 
 *GDS layout overview of the accelerometer structure (PHIDL-generated).*
 
@@ -31,7 +31,7 @@ The design was created over a **2000 µm × 2000 µm** die and includes:
 ## Design Variations (Spiral Routing Study)
 To evaluate routing density, DRC feasibility, and layout scalability, multiple spiral routing variants were designed across corner regions (turn-count and coverage variations). The study helps compare manufacturability trade-offs between lower-density and high-density routing options.
 
-<img src="spiral_variations.png" width="520">
+<img src="spiral_variations.jpeg" width="520">
 
 *Spiral routing variations used to study routing density and manufacturability constraints.*
 
