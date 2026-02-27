@@ -48,7 +48,7 @@ This project simulates that concept in a simplified and visual way.
 
 ---
 
-# 🧩 3. System Block Diagram
+#  3. System Block Diagram
 
 Below is the conceptual flow modeled in this project:
 
