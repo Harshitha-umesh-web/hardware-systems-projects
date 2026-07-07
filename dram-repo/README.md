@@ -1,4 +1,4 @@
-# 🧠 DRAM Timing Sensitivity Study
+# DRAM Timing Sensitivity Study
 
 *How much does a DRAM timing parameter actually matter? Turns out — it depends.*
 
@@ -6,7 +6,7 @@ A hands-on memory-systems project built with **[Ramulator2](https://github.com/C
 
 ---
 
-## 🎯 TL;DR
+## TL;DR
 
 I swept four core DDR4 timing parameters (`nCL`, `nRCD`, `nRP`, `nRAS`) by ±10–20% and measured the effect on latency and bandwidth using a real cycle-accurate simulator. Then I extended the study across **11 DRAM standards** — from DDR3 to HBM4 — to see how the whole memory landscape trades off latency vs. bandwidth.
 
@@ -14,7 +14,7 @@ I swept four core DDR4 timing parameters (`nCL`, `nRCD`, `nRP`, `nRAS`) by ±10�
 
 ---
 
-## 🛠️ Tools Used
+##  Tools Used
 
 | Tool | Role |
 |---|---|
@@ -26,7 +26,7 @@ I swept four core DDR4 timing parameters (`nCL`, `nRCD`, `nRP`, `nRAS`) by ±10�
 
 ---
 
-## 📊 Experiment 1: Timing Parameter Sweep (DDR4-2400)
+##  Experiment 1: Timing Parameter Sweep (DDR4-2400)
 
 Swept `nCL`, `nRCD`, `nRP`, `nRAS` independently at ±10% / ±20%, holding everything else at DDR4_2400R defaults. Workload: synthetic 80% read / 20% write trace via Ramulator2's built-in `LatencyThroughputTrace` generator.
 
@@ -50,7 +50,7 @@ Full raw data: [`results/sweep_results.csv`](results/sweep_results.csv)
 
 ---
 
-## 📊 Experiment 2: Cross-Standard Comparison
+## Experiment 2: Cross-Standard Comparison
 
 Same methodology, but instead of sweeping DDR4's timings, this compares **11 different DRAM standards** at their own default JEDEC timings — DDR3 through DDR5, LPDDR5/6, GDDR6/7, and HBM1 through HBM4 — using Ramulator2's own test-harness config for each.
 
@@ -74,16 +74,16 @@ Same methodology, but instead of sweeping DDR4's timings, this compares **11 dif
 
 **What this shows:** no single DRAM standard "wins" — each occupies a different point in the latency/bandwidth/power design space, chosen for its target market:
 
-- 🚀 **HBM3/4** — huge bandwidth, but the highest latency of the set — built for GPU/AI accelerator throughput, not per-access speed.
-- 🎮 **GDDR6/7** — the graphics-card sweet spot: strong bandwidth, moderate latency.
-- 🖥️ **DDR3/4** — the lowest latency here — general-purpose CPU memory, tuned for responsiveness.
-- 📱 **LPDDR5/6** — the *lowest* bandwidth of the whole set... but this benchmark doesn't measure power, which is the actual dimension LPDDR is optimized for. A benchmark "loss" here isn't a real loss — it's the wrong metric for the job.
+-  **HBM3/4** — huge bandwidth, but the highest latency of the set — built for GPU/AI accelerator throughput, not per-access speed.
+-  **GDDR6/7** — the graphics-card sweet spot: strong bandwidth, moderate latency.
+-  **DDR3/4** — the lowest latency here — general-purpose CPU memory, tuned for responsiveness.
+-  **LPDDR5/6** — the *lowest* bandwidth of the whole set... but this benchmark doesn't measure power, which is the actual dimension LPDDR is optimized for. A benchmark "loss" here isn't a real loss — it's the wrong metric for the job.
 
 Full raw data: [`results/standards_comparison.csv`](results/standards_comparison.csv)
 
 ---
 
-## 🧩 How It Was Built
+##  How It Was Built
 
 1. **Built Ramulator2 from source** — hit one real Apple Clang compile error (needed an explicit `template` keyword for a dependent template name in `param.h`), patched it, rebuilt clean.
 2. **Discovered Ramulator2's actual API** by reading its own test suite (`tests/latency_throughput/utils/runner.py`) rather than guessing — this build compiles as a native Python extension module, not a CLI/YAML tool.
@@ -95,7 +95,7 @@ Full raw data: [`results/standards_comparison.csv`](results/standards_comparison
 
 ---
 
-## 📁 Repo Structure
+##  Repo Structure
 
 ```
 .
@@ -124,7 +124,7 @@ Full raw data: [`results/standards_comparison.csv`](results/standards_comparison
 
 ---
 
-## 🔭 Possible Next Steps
+##  Possible Next Steps
 
 - Swap in DRAMPower for real per-configuration energy modeling
 - Model refresh (`nRFC`) interaction with these same timings
@@ -133,6 +133,6 @@ Full raw data: [`results/standards_comparison.csv`](results/standards_comparison
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Built on top of [Ramulator2](https://github.com/CMU-SAFARI/ramulator2) (CMU SAFARI Research Group) and [CACTI](https://github.com/HewlettPackard/cacti) (HP Labs). All simulation and analysis code in this repo is original.
